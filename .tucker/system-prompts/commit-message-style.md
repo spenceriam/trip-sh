@@ -1,6 +1,6 @@
 # Commit Message Style
 
-This document defines how commit messages should be written in projects that follow tucker-protocol.
+This document defines how commit messages should be written in projects that follow trip.
 
 ## Rules
 

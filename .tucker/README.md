@@ -1,38 +1,38 @@
-# tucker-protocol
+# trip
 
 ## What this is
 
-tucker-protocol is a meta-framework that standardizes how AI coding agents work on agentic coding projects. It defines the processes, workflows, skills, and expectations that any agentic coding harness must follow when contributing to code, regardless of which LLM or toolchain is in use.
+trip is a meta-framework that standardizes how AI coding agents work on agentic coding projects. It defines the processes, workflows, skills, and expectations that any agentic coding harness must follow when contributing to code, regardless of which LLM or toolchain is in use.
 
 ## Why it exists
 
-AI coding agents can generate code quickly but are prone to drift, inconsistent quality, and unsafe practices when left unconstrained. tucker-protocol exists to provide a clear, enforceable set of rules and workflows so that agents work predictably, respect project constraints, maintain quality, and protect production systems.
+AI coding agents can generate code quickly but are prone to drift, inconsistent quality, and unsafe practices when left unconstrained. trip exists to provide a clear, enforceable set of rules and workflows so that agents work predictably, respect project constraints, maintain quality, and protect production systems.
 
 ## Who it is for
 
-tucker-protocol is for developers and teams using AI coding agents such as Claude Code, Gemini CLI, Goose, Verdent, or other agentic harnesses. Any agent working on Spencer's projects should load and follow this protocol at the start of a coding session.
+trip is for developers and teams using AI coding agents such as Claude Code, Gemini CLI, Goose, Verdent, or other agentic harnesses. Any agent working on projects with a `.trip/` directory should load and follow this protocol at the start of a coding session.
 
 ## Quick Start
 
 1. Reference this repository in your AI agent's context at the beginning of a session.
-2. In your project, create a `.tucker/` directory.
-3. Copy the relevant files from this repository into your project's `.tucker/` directory, for example:
+2. In your project, create a `.trip/` directory.
+3. Copy the relevant files from this repository into your project's `.trip/` directory, for example:
    - Workflows from `workflows/` (for greenfield, brownfield, or bugfix work)
    - Skills from `skills/` (planner, code-review, debugger, looper, frontend-design)
    - System prompts from `system-prompts/` (AGENTS.md instructions, README structure, commit style, version bump rules)
    - Versioning standards from `versioning/VERSIONING.md`
    - MCP recommendations from `mcps/`
    - Integrations from `integrations/` (such as `proj-spec.md`)
-4. The agent should treat `.tucker/` as the source of truth for how to work in that project:
+4. The agent should treat `.trip/` as the source of truth for how to work in that project:
    - Follow workflows appropriate to the situation (greenfield, brownfield, bugfix).
    - Apply skills as needed (planning, debugging, code review, persistence, frontend design).
    - Adhere to commit message style, versioning rules, and documentation expectations.
-5. Keep `.tucker/` in sync with updates to this repository as the protocol evolves.
+5. Keep `.trip/` in sync with updates to this repository as the protocol evolves.
 
 ## Repository structure
 
 ```text
-tucker-protocol/
+trip/
 ├── README.md
 ├── LICENSE
 ├── PRINCIPLES.md
@@ -77,11 +77,11 @@ tucker-protocol/
 - `versioning/` – Versioning standards and SemVer guidance.
 - `integrations/` – Integration notes for external tools such as proj-spec.
 
-When used in a concrete project, these files are typically copied into that project's `.tucker/` directory and referenced by the agent.
+When used in a concrete project, these files are typically copied into that project's `.trip/` directory and referenced by the agent.
 
 ## Contributing
 
-Contributions that improve clarity, safety, or practicality of tucker-protocol are welcome. Changes should:
+Contributions that improve clarity, safety, or practicality of trip are welcome. Changes should:
 - Preserve the absolute principles in `PRINCIPLES.md`.
 - Maintain compatibility with multiple agentic harnesses (Claude Code, Gemini CLI, Goose, Verdent, and others).
 - Keep documentation concise, precise, and free of marketing language.

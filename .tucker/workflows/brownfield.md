@@ -1,6 +1,6 @@
 # Brownfield Workflow
 
-This workflow applies to existing projects where code already exists. The goal is to understand the current state, identify any drift from documentation, and implement changes safely using tucker-protocol.
+This workflow applies to existing projects where code already exists. The goal is to understand the current state, identify any drift from documentation, and implement changes safely using trip.
 
 ## 1. Assess Documentation State
 
@@ -115,4 +115,4 @@ None of `Requirements.md`, `Design.md`, or `Tasks.md` exist.
 
 ## Notes
 
-For brownfield projects, the priority is to respect the existing codebase and minimize disruption while gradually aligning it with clear documentation and tucker-protocol practices. Where possible, introduce or improve documentation as part of the work so future AI coding sessions start from a stronger baseline.
+For brownfield projects, the priority is to respect the existing codebase and minimize disruption while gradually aligning it with clear documentation and trip practices. Where possible, introduce or improve documentation as part of the work so future AI coding sessions start from a stronger baseline.

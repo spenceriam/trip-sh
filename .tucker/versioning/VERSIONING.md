@@ -1,6 +1,6 @@
 # Versioning Standards
 
-All projects that follow tucker-protocol use Semantic Versioning (SemVer) with the format `MAJOR.MINOR.PATCH`.
+All projects that follow trip use Semantic Versioning (SemVer) with the format `MAJOR.MINOR.PATCH`.
 
 ## Version Components
 

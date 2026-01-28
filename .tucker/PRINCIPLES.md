@@ -123,9 +123,9 @@ See `skills/code-review/` for detailed persona definitions and process.
 
 ## Relationship to Project-Specific Rules
 
-tucker-protocol defines global behavior for AI coding agents across all projects. Individual repositories may add stricter or more specific rules (for example, additional security policies, framework-specific conventions, or deployment constraints).
+trip defines global behavior for AI coding agents across all projects. Individual repositories may add stricter or more specific rules (for example, additional security policies, framework-specific conventions, or deployment constraints).
 
-When project-specific rules and tucker-protocol both apply:
+When project-specific rules and trip both apply:
 - Follow the stricter rule where there is overlap.
 - Never violate these absolute principles.
 - If there is an apparent conflict, pause, document the conflict, and ask the developer for guidance before proceeding.

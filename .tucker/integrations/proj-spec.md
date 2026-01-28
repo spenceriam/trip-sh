@@ -1,17 +1,17 @@
 # proj-spec Integration
 
-`tucker-protocol` and `proj-spec` are complementary frameworks that work together. tucker-protocol defines how AI agents should work. proj-spec helps define what should be built.
+`trip` and `proj-spec` are complementary frameworks that work together. trip defines how AI agents should work. proj-spec helps define what should be built.
 
 ## What is proj-spec?
 
 proj-spec is a tool that helps turn a rough project idea into a structured specification package for AI coding agents. It focuses on producing standard documents (such as requirements, design, tasks, project brain, and README) that downstream agents and developers can rely on.
 
-## How tucker-protocol and proj-spec Integrate
+## How trip and proj-spec Integrate
 
 - **proj-spec** defines what to build by generating a complete specification package.
-- **tucker-protocol** defines how to build it via workflows, skills, and process standards.
+- **trip** defines how to build it via workflows, skills, and process standards.
 
-Projects that originate from proj-spec should use tucker-protocol as the execution layer for implementation.
+Projects that originate from proj-spec should use trip as the execution layer for implementation.
 
 ## Detecting and Assessing Documentation
 
@@ -52,7 +52,7 @@ When `Requirements.md`, `Design.md`, and `Tasks.md` are all complete:
 4. Reference `Design.md` for architecture and implementation details.
 5. Reference `Requirements.md` for scope and acceptance criteria.
 6. Create or verify `AGENTS.md` per `system-prompts/agents-md-instructions.md`.
-7. Apply tucker-protocol workflows, skills, and review processes.
+7. Apply trip workflows, skills, and review processes.
 
 ## Scenario B: Documents Incomplete or Partially Missing
 
@@ -63,7 +63,7 @@ When some documents exist but have gaps:
 3. Augment incomplete documents using planner templates.
 4. Generate any missing documents.
 5. Create or update `AGENTS.md`.
-6. Apply tucker-protocol workflows from the greenfield Path B.
+6. Apply trip workflows from the greenfield Path B.
 
 ## Scenario C: No Documents Exist
 
@@ -120,4 +120,4 @@ When no specification documents are present:
 
 - The planner skill is for greenfield projects only; brownfield work uses audit-based workflows.
 - The planner skill generates standard specification documents so they remain usable regardless of how they were created.
-- tucker-protocol governs process regardless of whether documents came from proj-spec, the planner skill, or manual authoring.
+- trip governs process regardless of whether documents came from proj-spec, the planner skill, or manual authoring.

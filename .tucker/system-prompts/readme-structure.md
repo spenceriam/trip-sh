@@ -1,6 +1,6 @@
 # README Structure Instructions
 
-This document defines the required structure for `README.md` files in projects that follow tucker-protocol.
+This document defines the required structure for `README.md` files in projects that follow trip.
 
 ## Required Sections (in order)
 

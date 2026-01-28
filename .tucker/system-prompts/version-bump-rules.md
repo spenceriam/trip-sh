@@ -1,6 +1,6 @@
 # Version Bump Rules
 
-Projects following tucker-protocol use Semantic Versioning (SemVer) for releases.
+Projects following trip use Semantic Versioning (SemVer) for releases.
 
 ## SemVer Basics
 

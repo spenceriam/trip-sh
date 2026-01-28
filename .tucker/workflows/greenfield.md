@@ -1,6 +1,6 @@
 # Greenfield Workflow
 
-This workflow applies to new projects where implementation has not yet begun. It assumes work will be driven by standard specification documents and that AI coding agents will follow tucker-protocol throughout.
+This workflow applies to new projects where implementation has not yet begun. It assumes work will be driven by standard specification documents and that AI coding agents will follow trip throughout.
 
 ## 1. Assess Documentation State
 
