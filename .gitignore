@@ -1,0 +1,8 @@
+# Planning documents - not tracked in git
+Requirements.md
+Design.md
+Tasks.md
+
+# Local development files
+*.log
+.DS_Store
