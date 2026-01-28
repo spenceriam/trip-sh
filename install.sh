@@ -210,6 +210,81 @@ create_directory_structure() {
 # ==============================================================================
 
 deploy_files() {
+    # Check if TRIP_SOURCE is a local directory (for testing)
+    if [[ -d "$TRIP_SOURCE/.tucker" ]]; then
+        deploy_files_local
+    else
+        deploy_files_remote
+    fi
+}
+
+# Deploy from local directory (for testing)
+deploy_files_local() {
+    info "Copying trip protocol files from local source..."
+    
+    local source_dir="$TRIP_SOURCE/.tucker"
+    
+    # Define all files to copy
+    declare -a files=(
+        "README.md"
+        "LICENSE"
+        "PRINCIPLES.md"
+        "AGENTS.md"
+        "workflows/greenfield.md"
+        "workflows/brownfield.md"
+        "workflows/bugfix.md"
+        "system-prompts/agents-md-instructions.md"
+        "system-prompts/readme-structure.md"
+        "system-prompts/commit-message-style.md"
+        "system-prompts/version-bump-rules.md"
+        "skills/planner/SKILL.md"
+        "skills/code-review/SKILL.md"
+        "skills/code-review/PERSONA-junior.md"
+        "skills/code-review/PERSONA-senior.md"
+        "skills/debugger/SKILL.md"
+        "skills/looper/SKILL.md"
+        "skills/frontend-design/SKILL.md"
+        "mcps/defaults.md"
+        "mcps/by-project-type.md"
+        "versioning/VERSIONING.md"
+        "integrations/proj-spec.md"
+    )
+    
+    local copied=0
+    local failed=0
+    
+    for file in "${files[@]}"; do
+        local src="$source_dir/$file"
+        local dest="$TRIP_INSTALL_DIR/$file"
+        
+        # Ensure parent directory exists
+        local parent_dir
+        parent_dir=$(dirname "$dest")
+        mkdir -p "$parent_dir"
+        
+        if [[ -f "$src" ]]; then
+            if cp "$src" "$dest"; then
+                copied=$((copied + 1))
+            else
+                error "Failed to copy: $file"
+                failed=$((failed + 1))
+            fi
+        else
+            error "Source file not found: $src"
+            failed=$((failed + 1))
+        fi
+    done
+    
+    if [[ $failed -gt 0 ]]; then
+        error "Failed to copy $failed files"
+        exit $EXIT_FILESYSTEM_ERROR
+    fi
+    
+    success "Copied $copied files successfully"
+}
+
+# Deploy from remote URL (production)
+deploy_files_remote() {
     info "Downloading trip protocol files..."
     
     # Construct base URL for raw GitHub content
@@ -293,19 +368,24 @@ write_version_file() {
     
     local version
     if [[ "$TRIP_VERSION" == "latest" ]]; then
-        # Try to get version from remote VERSION file
-        local temp_version
-        temp_version=$(mktemp)
-        local base_url
-        base_url="${TRIP_SOURCE/github.com/raw.githubusercontent.com}"
-        base_url="${base_url%.git}/main"
-        
-        if download_file "$base_url/VERSION" "$temp_version" 2>/dev/null; then
-            version=$(cat "$temp_version")
+        # Check for local VERSION file first (local source mode)
+        if [[ -f "$TRIP_SOURCE/VERSION" ]]; then
+            version=$(cat "$TRIP_SOURCE/VERSION")
         else
-            version="unknown"
+            # Try to get version from remote VERSION file
+            local temp_version
+            temp_version=$(mktemp)
+            local base_url
+            base_url="${TRIP_SOURCE/github.com/raw.githubusercontent.com}"
+            base_url="${base_url%.git}/main"
+            
+            if download_file "$base_url/VERSION" "$temp_version" 2>/dev/null; then
+                version=$(cat "$temp_version")
+            else
+                version="unknown"
+            fi
+            rm -f "$temp_version"
         fi
-        rm -f "$temp_version"
     else
         version="$TRIP_VERSION"
     fi
